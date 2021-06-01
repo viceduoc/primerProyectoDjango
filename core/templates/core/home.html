@@ -1,3 +1,5 @@
+{%load static%}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,21 +9,14 @@
   <title>Document</title>
 </head>
 <body>
-{%load static%}
-  <h1>{{nombre}}</h1> 
-  <h2>{{edad}}</h2>
+
   
-  <h3>Equipos:</h3>
+  <h2>Listado de vehiculos: </h2>
+  {%for vehiculo in vehiculos%}
+    <h2>{{vehiculo.patente}}</h2>
+    <h2>{{vehiculo.marca}}</h2>
+    <h2>{{vehiculo.modelo}}</h2>
 
-  <ol>
-    {% for equipo in equipos%}
-    <li>{{equipo}}</li>
-
-    {%endfor%}
-  </ol>
-
-  <h3>{{hijo.nombre}}</h3>
-  <h3>{{hijo.edad}}</h3>
-  <img src="{%static 'core/img/1.webp'%}" alt="" srcset="">
+  {%endfor%}
 </body>
 </html>

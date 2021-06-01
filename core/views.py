@@ -1,22 +1,15 @@
 from django.shortcuts import render
+from .models import Vehiculo
 
 
-class Persona:
-    def __init__(self, nombre, edad):
-        self.nombre = nombre
-        self.edad = edad
-        super().__init__( )
-        
 
 
 def home(request):
+    vehiculos = Vehiculo.objects.all()
 
-    hijo = Persona("Bambina", 12)
-    lista = ["napoli", "colo-colo"]
-    contexto = {
-        "nombre": "Vicente Carmona",
-        "edad": 32,
-        "equipos": lista,
-        "hijo": hijo,
+    datos =  {
+        'vehiculos': vehiculos
     }
-    return render(request, 'core/home.html', contexto)
+
+    
+    return render(request, 'core/home.html', datos)
